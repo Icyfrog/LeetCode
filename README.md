@@ -6,3 +6,9 @@
 毕竟伟大的b神说过：
 
 ### ~~过节了，都给老子绿~~
+
+目录如下：(中文网站就是leetcode-cn，其他都一样） 
+
+
+
+1.Two Sum         &#160;&#160;&#160;         https://leetcode.com/problems/two-sum/
