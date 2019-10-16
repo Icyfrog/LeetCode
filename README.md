@@ -9,6 +9,9 @@
 
 目录如下：(中文网站就是leetcode-cn，其他都一样） 
 
-
-
 1.Two Sum         &#160;&#160;&#160;         https://leetcode.com/problems/two-sum/
+
+
+#### XSL 2019/10/16号 重启
+暂定使用java语言写（因为idea比较好用吧hhh）
+每个题目建立一个文件夹，写文档和代码。加油！
