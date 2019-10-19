@@ -1,5 +1,9 @@
 import java.util.HashMap;
 
+
+class Que2 {
+    
+}
 public class Main {
 
     public static void main(String[] args) {
