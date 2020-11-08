@@ -7,20 +7,49 @@ import java.util.*;
 */
 
 public class Solution {
-    public static int add(int n, int k) {
-        if (n==1 || k==0) return 1;
+    
+    // 递归版本
+    public static int ways(int total, int k) {
+        // Write your code here
+        if (k==1 || total==0) return 1;
         int ret = 0;
-        int times = k / n;
-        for (int i = 0; i <= times; i++) {
-            ret += add(n-1, k - i * n);
+        int times = total / k;
+        for (int i=0; i<=times; i++) {
+            ret += ways(total-i*k, k-1);
         }
         return ret;
+
     }
+    
+    // 动规版本
+    // dp[i][j] = dp[i-1][j-n*i]  n代表的就是，可以取0个，1个，2个，3个
+        public static int ways(int k, int total) {
+        // Write your code here
+        int[][] dp = new int[k+1][total+1];
+        for (int i=0; i<=total; i++) {
+            dp[0][i] = 0;
+        }
+        for (int i=0; i<=k; i++) {
+            dp[i][0] = 1;
+        }
+        for (int i=1; i<=k; i++) {
+            for (int j=1; j<=total; j++) {
+                int times = j/i;
+                for (int t=0; t<=times; t++) {
+                    dp[i][j] += dp[i-1][j-t*i];
+                }
+            }
+        }
+
+        return dp[k][total];
+    }
+    
+、
 
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        int k= in.nextInt();
-        System.out.print(add(n, k));
+        int k = in.nextInt();
+        int total= in.nextInt();
+        System.out.print(add(k, total));
     }
 }
