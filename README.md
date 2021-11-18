@@ -1,20 +1,126 @@
-# LeetCode
-暂定2018年寒假没事做做这个。
+```typescript
+Highcharts.chart('container', {
+    chart: {
+        height: 600,
+        inverted: true
+    },
 
-学学java，另外尝试ICS课写lab是用c的，所以没事两种语言兼顾下吧。
+    title: {
+        text: 'Highcharts Org Chart'
+    },
 
-毕竟伟大的b神说过：
+    accessibility: {
+        point: {
+            descriptionFormatter: function (point) {
+                var nodeName = point.toNode.name,
+                    nodeId = point.toNode.id,
+                    nodeDesc = nodeName === nodeId ? nodeName : nodeName + ', ' + nodeId,
+                    parentDesc = point.fromNode.id;
+                return point.index + '. ' + nodeDesc + ', reports to ' + parentDesc + '.';
+            }
+        }
+    },
 
-### ~~过节了，都给老子绿~~
+    series: [{
+        type: 'organization',
+        name: 'Highsoft',
+        keys: ['from', 'to'],
+        data: [
+            ['Shareholders', 'Board'],
+            ['Board', 'CEO'],
+            ['CEO', 'CTO'],
+            ['CEO', 'CPO'],
+            ['CEO', 'CSO'],
+            ['CEO', 'HR'],
+            ['CTO', 'Product'],
+            ['CTO', 'Web'],
+            ['CSO', 'Sales'],
+            ['HR', 'Market'],
+            ['CSO', 'Market'],
+            ['HR', 'Market'],
+            ['CTO', 'Market']
+        ],
+        levels: [{
+            level: 0,
+            color: 'silver',
+            dataLabels: {
+                color: 'black'
+            },
+            height: 25
+        }, {
+            level: 1,
+            color: 'silver',
+            dataLabels: {
+                color: 'black'
+            },
+            height: 25
+        }, {
+            level: 2,
+            color: '#980104'
+        }, {
+            level: 4,
+            color: '#359154'
+        }],
+        nodes: [{
+            id: 'Shareholders'
+        }, {
+            id: 'Board'
+        }, {
+            id: 'CEO',
+            title: 'CEO',
+            name: 'Grethe Hjetland',
+            image: 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131126/Highsoft_03862_.jpg'
+        }, {
+            id: 'HR',
+            title: 'HR/CFO',
+            name: 'Anne Jorunn Fjærestad',
+            color: '#007ad0',
+            image: 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131210/Highsoft_04045_.jpg'
+        }, {
+            id: 'CTO',
+            title: 'CTO',
+            name: 'Christer Vasseng',
+            image: 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131120/Highsoft_04074_.jpg'
+        }, {
+            id: 'CPO',
+            title: 'CPO',
+            name: 'Torstein Hønsi',
+            image: 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131213/Highsoft_03998_.jpg'
+        }, {
+            id: 'CSO',
+            title: 'CSO',
+            name: 'Anita Nesse',
+            image: 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131156/Highsoft_03834_.jpg'
+        }, {
+            id: 'Product',
+            name: 'Product developers'
+        }, {
+            id: 'Web',
+            name: 'Web devs, sys admin'
+        }, {
+            id: 'Sales',
+            name: 'Sales team'
+        }, {
+            id: 'Market',
+            name: 'Marketing team',
+            column: 5
+        }],
+        colorByPoint: false,
+        color: '#007ad0',
+        dataLabels: {
+            color: 'white'
+        },
+        borderColor: 'white',
+        nodeWidth: 65
+    }],
+    tooltip: {
+        outside: true
+    },
+    exporting: {
+        allowHTML: true,
+        sourceWidth: 800,
+        sourceHeight: 600
+    }
 
-目录如下：(中文网站就是leetcode-cn，其他都一样） 
-
-1.Two Sum         &#160;&#160;&#160;         https://leetcode.com/problems/two-sum/
-
-
-#### XSL 2019/10/16号 重启
-暂定使用java语言写（因为idea比较好用吧hhh）
-每个题目建立一个文件夹，写文档和代码。加油！
-
-#### XSL 2020/1/25号 重启
-庚子鼠年 大年初一
+});
+···
